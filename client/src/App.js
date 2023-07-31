@@ -3,6 +3,7 @@ import { Box, styled } from "@mui/material";
 // Components
 import Header from "./Components/Header";
 import InfoHeader from "./Components/InfoHeader";
+import Articles from "./Components/Articles";
 
 const Container = styled(Box)`
   width: 60%;
@@ -10,12 +11,13 @@ const Container = styled(Box)`
 `;
 function App() {
   return (
-    <div className="App">
+    <Box>
       <Header />
       <Container>
         <InfoHeader />
+        <Articles />
       </Container>
-    </div>
+    </Box>
   );
 }
 
