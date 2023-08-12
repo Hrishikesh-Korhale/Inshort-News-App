@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 
-//Components
+// Components
 import { getNews } from "../service/api";
 import Article from "./Article";
 
-const Articles = () =>{
+const Articles = ({ setProgress }) => {
+  const [news, setNews] = useState([]);
 
-    const [news, setNews] = useState([]);
+  useEffect(() => {
+    dailyNews();
+    // eslint-disable-next-line
+  }, []);
 
-    useEffect(() => {
-        dailyNews();
-    }, []);
+  const dailyNews = async () => {
+    setProgress(40);
+    let response = await getNews();
+    setProgress(70);
+    setNews(response.data);
+    setProgress(100);
+  };
 
-    const dailyNews = async() =>{
-        let response = await getNews();
-        setNews(response.data);
-    }
-    return(
-        <Box>
-           { news.map(data => {
-                return <Article data={data}/>
-            })
-            }
-        </Box>
-    )
-}
+  return (
+    <Box>
+      {news.map((data) => {
+        return <Article data={data} />;
+      })}
+    </Box>
+  );
+};
 
 export default Articles;

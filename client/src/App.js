@@ -1,5 +1,8 @@
 import { Box, styled } from "@mui/material";
 
+import React, { useState } from "react";
+import LoadingBar from "react-top-loading-bar";
+
 // Components
 import Header from "./Components/Header";
 import InfoHeader from "./Components/InfoHeader";
@@ -16,12 +19,20 @@ const Container = styled(Box)(({ theme }) => ({
   },
 }));
 function App() {
+  const [progress, setProgress] = useState(0);
+
   return (
     <Box>
       <Header />
+      <LoadingBar
+        height={4}
+        color="#f11946"
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <Container>
         <InfoHeader />
-        <Articles />
+        <Articles setProgress={setProgress} />
       </Container>
     </Box>
   );
