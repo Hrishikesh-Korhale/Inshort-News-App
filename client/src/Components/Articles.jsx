@@ -23,8 +23,8 @@ const Articles = ({ setProgress }) => {
 
   return (
     <Box>
-      {news.map((data) => {
-        return <Article data={data} />;
+      {news.map((data,index) => {
+        return <Article key={index} data={data} />;
       })}
     </Box>
   );
