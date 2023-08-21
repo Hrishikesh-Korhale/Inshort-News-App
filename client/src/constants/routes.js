@@ -1,8 +1,9 @@
-const APP_PATH = "/";
+const APP_PATH = "/inshort";
 
-export const routhPath = {
-  home: `${APP_PATH}/`,
+export const routePath = {
+  newstypes: `${APP_PATH}/newstypes`,
   business: `${APP_PATH}/business`,
   technology: `${APP_PATH}/technology`,
-  invalid: `${APP_PATH}/*`,
+  invalid : `${APP_PATH}/*`,
+
 };

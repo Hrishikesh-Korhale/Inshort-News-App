@@ -1,4 +1,7 @@
 import { MenuItem, Menu } from "@mui/material";
+import { Link } from "react-router-dom";
+import { routePath } from "../constants/routes";
+
 const HeaderMenu = ({ open, handleClose }) => {
   const openMenu = Boolean(open);
   return (
@@ -11,10 +14,25 @@ const HeaderMenu = ({ open, handleClose }) => {
         "aria-labelledby": "basic-button",
       }}
     >
-      <MenuItem onClick={handleClose}>All</MenuItem>
-      <MenuItem onClick={handleClose}>Business</MenuItem>
-      <MenuItem onClick={handleClose}>Technology</MenuItem>
-    </Menu>
+       <Link
+        to={`${routePath.newstypes}?newstype=all`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <MenuItem onClick={handleClose}>All</MenuItem>
+      </Link>
+      <Link
+        to={`${routePath.newstypes}?newstype=business`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <MenuItem onClick={handleClose}>Business</MenuItem>
+      </Link>
+      <Link
+        to={`${routePath.newstypes}?newstype=technology`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <MenuItem onClick={handleClose}>Technology</MenuItem>
+      </Link>
+      </Menu>
   );
 };
 

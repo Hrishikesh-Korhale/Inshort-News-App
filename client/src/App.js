@@ -2,11 +2,14 @@ import { Box, styled } from "@mui/material";
 
 import React, { useState } from "react";
 import LoadingBar from "react-top-loading-bar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 // Components
 import Header from "./Components/Header";
 import InfoHeader from "./Components/InfoHeader";
 import Articles from "./Components/Articles";
+import {routePath} from "./constants/routes";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "65%",
@@ -22,7 +25,7 @@ function App() {
   const [progress, setProgress] = useState(0);
 
   return (
-    <Box>
+    <BrowserRouter>
       <Header />
       <LoadingBar
         height={4}
@@ -32,9 +35,18 @@ function App() {
       />
       <Container>
         <InfoHeader />
-        <Articles setProgress={setProgress} />
+        <Routes>
+        <Route
+          path={routePath.newstypes}
+          element={<Articles setProgress={setProgress} />}
+        />
+        <Route
+          path={routePath.invalid}
+          element={<Articles setProgress={setProgress} />}
+        />
+        </Routes>
       </Container>
-    </Box>
+    </BrowserRouter>
   );
 }
 
