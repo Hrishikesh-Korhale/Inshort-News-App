@@ -32,6 +32,6 @@ const newsSchema = new mongoose.Schema({
     }
 });
 
-const news = mongoose.model('news',newsSchema);
+const technologynews = mongoose.model('technologynews',newsSchema);
 
-export default news;
+export default technologynews;

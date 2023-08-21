@@ -7,4 +7,4 @@ export const getNews = async(request,response) => {
         }catch(error){
             response.status(500).json({message: error.message});
         }
-}
+} 
